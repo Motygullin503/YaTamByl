@@ -146,6 +146,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if (response.body().getSuccess()){
                             Intent intent = new Intent(context, AuthActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             Log.d("ERROR", response.body().getError());
                             Toast.makeText(context, "Ошибка сервера.", Toast.LENGTH_SHORT).show();

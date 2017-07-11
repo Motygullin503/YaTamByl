@@ -141,24 +141,28 @@ public class AuthActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("AUTH", "signInWithEmail:success");
                             final FirebaseUser user = mAuth.getCurrentUser();
-                            if (!user.isEmailVerified()) {
-                                Toast.makeText(AuthActivity.this, "Email не подтвержден", Toast.LENGTH_SHORT).show();
-                            } else {
-                                user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<GetTokenResult> task) {
-                                        if (task.isSuccessful()) {
-                                            Intent intent = new Intent(context, GeneralActivity.class);
-                                            User newUser = new User(task.getResult().getToken(), user.getDisplayName(), 1, null);
-                                            intent.putExtra("user", newUser);
-                                        } else {
-                                            Log.w("AUTH", "signInWithEmail:failure", task.getException());
-                                            Toast.makeText(AuthActivity.this, "Не удалось войти, повторите попытку.",
-                                                    Toast.LENGTH_SHORT).show();
+                            if (user != null) {
+                                if (!user.isEmailVerified()) {
+                                    Toast.makeText(AuthActivity.this, "Email не подтвержден", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                            if (task.isSuccessful()) {
+                                                Intent intent = new Intent(context, GeneralActivity.class);
+                                                User newUser = new User(task.getResult().getToken(), user.getDisplayName(), 1, null);
+                                                intent.putExtra("user", newUser);
+                                                startActivity(intent);
+                                                finish();
+                                            } else {
+                                                Log.w("AUTH", "signInWithEmail:failure", task.getException());
+                                                Toast.makeText(AuthActivity.this, "Не удалось войти, повторите попытку.",
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
                                         }
-                                    }
-                                });
+                                    });
 
+                                }
                             }
 
                         } else {
