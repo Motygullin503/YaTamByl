@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "937248153382",
+    "firebase_url": "https://yatambyl-d13d7.firebaseio.com",
+    "project_id": "yatambyl-d13d7",
+    "storage_bucket": "yatambyl-d13d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937248153382:android:e0656a0859b0b544",
+        "android_client_info": {
+          "package_name": "ru.ksu.motygullin.yatambyl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937248153382-bql4otinkh20veisiifbua6jtpug2ru6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANyn3K1JvG4kIXw1qRdgJ3SvBRBMXp_Jw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

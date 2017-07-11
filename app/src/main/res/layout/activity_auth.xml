@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru.ksu.motygullin.yatambyl.activities.AuthActivity">
+
+    <TextView
+        android:id="@+id/register_ref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Зарегистрироваться"
+        android:textColor="#3434FF"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/not_auth"
+        android:layout_marginStart="19dp" />
+
+    <TextView
+        android:id="@+id/forget_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="Забыли пароль?"
+        android:textColor="#3434FF"
+        android:layout_below="@+id/auth_password"
+        android:layout_alignEnd="@+id/auth_password" />
+
+    <EditText
+        android:id="@+id/auth_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="131dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/auth_password" />
+
+    <EditText
+        android:id="@+id/auth_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:layout_below="@+id/auth_email"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/btn_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forget_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Войти" />
+
+    <TextView
+        android:id="@+id/not_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Еще не зарегистрированы?"
+        android:layout_alignBaseline="@+id/register_ref"
+        android:layout_alignBottom="@+id/register_ref"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp" />
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:id="@+id/tv_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Авторизация"
+        android:textSize="25sp" />
+</RelativeLayout>
