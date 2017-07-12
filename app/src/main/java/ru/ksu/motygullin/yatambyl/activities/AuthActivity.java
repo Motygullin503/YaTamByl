@@ -96,6 +96,9 @@ public class AuthActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int id) {
 
                                         sendPasswordResetEmail(userInput.getText().toString());
+                                        if (mAuth.getCurrentUser()!=null){
+                                            mAuth.signOut();
+                                        }
 
                                     }
                                 })

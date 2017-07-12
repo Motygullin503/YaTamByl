@@ -54,7 +54,7 @@
         android:textStyle="italic" />
 
     <Button
-        android:id="@+id/edit"
+        android:id="@+id/begin_recording"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -68,7 +68,7 @@
         android:layout_height="306dp">
 
         <TextView
-            android:id="@+id/item_text"
+            android:id="@+id/poem_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 

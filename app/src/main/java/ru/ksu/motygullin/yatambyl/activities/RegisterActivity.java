@@ -68,6 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(context, AuthActivity.class);
                 startActivity(intent);
+                if (mAuth.getCurrentUser() != null) {
+                    finish();
+                }
+
             }
         });
 
@@ -161,5 +165,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+        }
+    }
 }
