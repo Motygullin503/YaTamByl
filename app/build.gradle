@@ -19,6 +19,12 @@ android {
     }
 }
 
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -27,6 +33,7 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.9.4@aar') {
         transitive = true
     }
+    compile 'com.github.adrielcafe:AndroidAudioRecorder:0.3.0'
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:support-core-utils:25.4.0'
     compile 'com.android.support:design:25.4.0'
