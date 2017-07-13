@@ -7,6 +7,6 @@ import ru.ksu.motygullin.yatambyl.entites.PostModel;
 
 public interface YaTamBylAPI {
     @POST("/users/add")
-    Call<PostModel> addUsers(@Query("hash") String hash, @Query("name") String name);
+    Call<PostModel> addUsers(@Query("name") String name, @Query("hash") String hash);
 
 }

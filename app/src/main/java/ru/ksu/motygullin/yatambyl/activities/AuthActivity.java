@@ -66,7 +66,7 @@ public class AuthActivity extends AppCompatActivity {
         registerRef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent intent = new Intent(context, RegisterActivity.class);
                 intent.putExtra("user", "logOut");
                 startActivity(intent);
             }

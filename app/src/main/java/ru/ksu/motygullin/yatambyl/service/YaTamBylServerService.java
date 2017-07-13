@@ -6,11 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class YaTamBylServerService {
 
     private YaTamBylAPI api;
-    private Retrofit retrofit;
 
     public YaTamBylServerService() {
 
-        retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://kurs-work.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

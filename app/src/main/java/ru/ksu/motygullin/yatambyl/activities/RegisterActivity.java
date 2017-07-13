@@ -16,11 +16,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-import java.io.IOException;
-
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import ru.ksu.motygullin.yatambyl.R;
 import ru.ksu.motygullin.yatambyl.entites.PostModel;
@@ -79,8 +78,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (!regUsername.getText().toString().equals("") && !regEmail.getText().toString().equals("")&& !regPass.getText().toString().equals("")){
-                    if (regPass.getText().length()>=6) {
+                if (!regUsername.getText().toString().equals("") && !regEmail.getText().toString().equals("") && !regPass.getText().toString().equals("")) {
+                    if (regPass.getText().length() >= 6) {
                         createAccount(regEmail.getText().toString(), regPass.getText().toString());
                         Toast.makeText(context, "Мы выслали сообщение на вашу почту " + regEmail.getText().toString() + ". Пройдите по ссылке, чтобы завершить регистрацию", Toast.LENGTH_LONG).show();
                     } else {
@@ -140,30 +139,28 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void updateUI(final FirebaseUser user) {
-
-        user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+        Call<PostModel> call = api.addUsers(user.getDisplayName(), user.getUid());
+        call.enqueue(new Callback<PostModel>() {
             @Override
-            public void onComplete(@NonNull Task<GetTokenResult> task) {
-                if (task.isSuccessful()){
-                    try {
-                        Response<PostModel> response = api.addUsers(task.getResult().getToken(), user.getDisplayName()).execute();
-                        if (response.body().getSuccess()){
-                            Intent intent = new Intent(context, AuthActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Log.d("ERROR", response.body().getError());
-                            Toast.makeText(context, "Ошибка сервера.", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+            public void onResponse(@NonNull Call<PostModel> call, @NonNull Response<PostModel> response) {
+                if (response.body().getSuccess()) {
+                    Intent intent = new Intent(context, AuthActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Log.d("ERROR", response.body().getError());
+                    Toast.makeText(context, "Ошибка сервера.", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<PostModel> call, @NonNull Throwable t) {
+                Toast.makeText(context, "Ошибка сервера.", Toast.LENGTH_SHORT).show();
             }
         });
 
-
     }
+
 
     @Override
     protected void onResume() {
