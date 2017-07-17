@@ -11,7 +11,7 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ваш Email: "
+        android:text="Введите Email для смены пароля: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText

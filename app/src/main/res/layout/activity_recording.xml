@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.ksu.motygullin.yatambyl.activities.RecordingActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="ru.ksu.motygullin.yatambyl.activities.RecordingActivity">
 
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/rec_toolbar"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-        android:layout_height="wrap_content">
+        android:background="@color/colorPrimary">
 
     </android.support.v7.widget.Toolbar>
 
@@ -26,54 +26,29 @@
         app:cardCornerRadius="5dp"
         app:contentPadding="10dp">
 
-        <TextView
-            android:id="@+id/item_name"
-            style="@style/Base.TextAppearance.AppCompat.Headline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:gravity="center_horizontal"
-            android:text="Первое четверостишье"
-            android:textSize="20sp" />
 
 
-        <TextView
-
-            android:id="@+id/name_and_author"
-            style="@style/TextAppearance.AppCompat.Inverse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_corner"
-            android:text="'Парус' М.Ю.Лермонтов"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:textStyle="italic" />
-
-
-        <ScrollView
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="271dp"
-            android:layout_marginTop="100dp">
-
-            <TextView
-                android:id="@+id/poem_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:text="Текст произведения"
-                android:textAlignment="textStart"
-                android:textSize="20sp" />
-        </ScrollView>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom">
+
+            <ScrollView
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_above="@+id/record"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/poem_text_rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:textSize="20sp" />
+            </ScrollView>
 
             <TextView
                 android:id="@+id/br"
@@ -93,18 +68,18 @@
                 android:id="@+id/record"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_record"
                 android:layout_above="@+id/br"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_record" />
 
             <android.support.design.widget.FloatingActionButton
                 android:visibility="gone"
-                android:id="@+id/stop_record"
+                android:id="@+id/stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_stop"
                 android:layout_above="@+id/br"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_stop" />
 
 
         </RelativeLayout>

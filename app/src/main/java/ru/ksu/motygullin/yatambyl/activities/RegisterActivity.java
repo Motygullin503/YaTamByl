@@ -23,8 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ru.ksu.motygullin.yatambyl.R;
 import ru.ksu.motygullin.yatambyl.entites.PostModel;
+import ru.ksu.motygullin.yatambyl.service.Api;
 import ru.ksu.motygullin.yatambyl.service.YaTamBylAPI;
-import ru.ksu.motygullin.yatambyl.service.YaTamBylServerService;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -43,8 +43,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        YaTamBylServerService serverService = new YaTamBylServerService();
-        api = serverService.getApi();
+
+        api = Api.getInstance().getApi();
 
         try {
             if (getIntent().getStringExtra("user").equals("logOut")) {
