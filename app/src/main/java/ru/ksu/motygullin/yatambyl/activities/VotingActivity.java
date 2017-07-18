@@ -12,6 +12,6 @@ public class VotingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voting);
 
-        finish();
+
     }
 }

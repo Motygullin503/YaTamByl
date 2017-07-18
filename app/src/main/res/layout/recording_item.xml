@@ -13,24 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/play"
-            android:layout_marginEnd="15dp"
-            android:src="@mipmap/ic_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
 
         <android.support.design.widget.FloatingActionButton
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/pause"
             android:layout_marginEnd="15dp"
             android:src="@mipmap/ic_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/play"
+
+            android:layout_marginEnd="15dp"
+            android:src="@mipmap/ic_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <LinearLayout
             android:id="@id/llayout"
-            android:layout_toEndOf="@id/play"
+
+            android:layout_toEndOf="@id/pause"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

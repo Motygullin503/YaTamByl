@@ -160,7 +160,7 @@ public class RecordingActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int id) {
 
                                         StorageReference reference = storage.getReference(uid);
-                                        Uri file = Uri.fromFile(new File(filePath));
+                                        final Uri file = Uri.fromFile(new File(filePath));
                                         final UploadTask task = reference.putFile(file);
                                         task.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                             @Override
@@ -176,6 +176,7 @@ public class RecordingActivity extends AppCompatActivity {
                                                         Toast.makeText(RecordingActivity.this, "Запись успешно загружена!", Toast.LENGTH_LONG).show();
                                                         Intent intent = new Intent(context, GeneralActivity.class);
                                                         startActivity(intent);
+                                                        finish();
                                                     }
 
                                                     @Override

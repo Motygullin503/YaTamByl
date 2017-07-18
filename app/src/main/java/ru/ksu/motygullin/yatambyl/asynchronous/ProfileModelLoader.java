@@ -29,7 +29,7 @@ public class ProfileModelLoader extends AsyncTaskLoader<ProfileModel> {
 
         ProfileModel model = null;
         YaTamBylAPI api = Api.getInstance().getApi();
-        Call<ProfileModel> call = api.getAllRecordsById("cmaqxYCgFGcu6llseNH1KDWoOwA3");
+        Call<ProfileModel> call = api.getAllRecordsById(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         try {
             Response<ProfileModel> response = call.execute();

@@ -75,7 +75,7 @@ public class GeneralActivity extends AppCompatActivity implements LoaderManager.
 
         ProfileDrawerItem item1 = new ProfileDrawerItem().withIdentifier(1).withName("Мой профиль");
         ProfileDrawerItem item2 = new ProfileDrawerItem().withIdentifier(2).withName("Топ/Голосование");
-        ProfileDrawerItem item3 = new ProfileDrawerItem().withIdentifier(3).withName("Поиск по произведениям");
+
 
 
         new DrawerBuilder().withActivity(this)
@@ -84,8 +84,7 @@ public class GeneralActivity extends AppCompatActivity implements LoaderManager.
                 .withActionBarDrawerToggleAnimated(true)
                 .addDrawerItems(
                         item1,
-                        item2,
-                        item3
+                        item2
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -120,13 +119,6 @@ public class GeneralActivity extends AppCompatActivity implements LoaderManager.
                                     }
                                 });
 
-
-
-
-                            case 3:
-                                Intent intent1 = new Intent(context, VotingActivity.class);
-                                Log.d("WARN", "Pressed");
-                                startActivity(intent1);
                             case 2:
                                 Intent intent2 = new Intent(context, VotingActivity.class);
                                 Log.d("WARN", "Pressed");

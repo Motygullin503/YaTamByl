@@ -1,12 +1,16 @@
 package ru.ksu.motygullin.yatambyl.adapters;
 
+import android.media.MediaPlayer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 import ru.ksu.motygullin.yatambyl.R;
 import ru.ksu.motygullin.yatambyl.entites.Artwork;
@@ -17,6 +21,8 @@ import ru.ksu.motygullin.yatambyl.entites.Track;
 public class ArtworkRecyclerViewAdapter extends RecyclerView.Adapter<ArtworkRecyclerViewAdapter.ArtworkViewHolder> {
 
     private ProfileModel profileModel;
+    int pos = 0;
+    Boolean isPaused = false;
 
     public ArtworkRecyclerViewAdapter(ProfileModel profileModel) {
         this.profileModel = profileModel;
@@ -30,12 +36,14 @@ public class ArtworkRecyclerViewAdapter extends RecyclerView.Adapter<ArtworkRecy
     }
 
     @Override
-    public void onBindViewHolder(ArtworkViewHolder holder, int position) {
+    public void onBindViewHolder(final ArtworkViewHolder holder, int position) {
 
         if (profileModel!=null && !profileModel.getTracks().isEmpty()) {
             final Track track = profileModel.getTracks().get(position);
 
             holder.rating.setText(String.valueOf(track.getRating()));
+
+            final MediaPlayer player = new MediaPlayer();
 
 
             for (Artwork artwork : profileModel.getArtworks()) {
@@ -45,6 +53,57 @@ public class ArtworkRecyclerViewAdapter extends RecyclerView.Adapter<ArtworkRecy
 
                 }
             }
+
+            holder.play.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    holder.play.setClickable(false);
+
+                    if (isPaused) {
+
+                        player.seekTo(pos);
+                        player.start();
+                        holder.play.setVisibility(View.INVISIBLE);
+                        holder.pause.setVisibility(View.VISIBLE);
+                    } else {
+                        holder.play.setVisibility(View.INVISIBLE);
+                        holder.pause.setVisibility(View.VISIBLE);
+
+                        try {
+                            player.setDataSource(track.getLink());
+                            player.prepare();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        player.start();
+                    }
+                }
+            });
+
+            holder.pause.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    holder.play.setClickable(true);
+                    holder.play.setVisibility(View.VISIBLE);
+                    holder.pause.setVisibility(View.INVISIBLE);
+                    isPaused = player.isPlaying();
+                    player.pause();
+                    pos = player.getCurrentPosition();
+
+                }
+            });
+
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    holder.play.setVisibility(View.VISIBLE);
+                    holder.pause.setVisibility(View.INVISIBLE);
+                    player.stop();
+                    player.reset();
+                }
+            });
+
         }
 
 
