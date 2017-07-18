@@ -3,7 +3,6 @@ package ru.ksu.motygullin.yatambyl.adapters;
 import android.media.MediaPlayer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +17,13 @@ import ru.ksu.motygullin.yatambyl.entites.ProfileModel;
 import ru.ksu.motygullin.yatambyl.entites.Track;
 
 
-public class ArtworkRecyclerViewAdapter extends RecyclerView.Adapter<ArtworkRecyclerViewAdapter.ArtworkViewHolder> {
+public class ProfileRecyclerViewAdapter extends RecyclerView.Adapter<ProfileRecyclerViewAdapter.ArtworkViewHolder> {
 
     private ProfileModel profileModel;
     int pos = 0;
     Boolean isPaused = false;
 
-    public ArtworkRecyclerViewAdapter(ProfileModel profileModel) {
+    public ProfileRecyclerViewAdapter(ProfileModel profileModel) {
         this.profileModel = profileModel;
     }
 

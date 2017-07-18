@@ -119,7 +119,7 @@ public class GeneralActivity extends AppCompatActivity implements LoaderManager.
                                     }
                                 });
 
-                            case 2:
+                            case 1:
                                 Intent intent2 = new Intent(context, VotingActivity.class);
                                 Log.d("WARN", "Pressed");
                                 startActivity(intent2);

@@ -10,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import ru.ksu.motygullin.yatambyl.R;
-import ru.ksu.motygullin.yatambyl.adapters.ArtworkRecyclerViewAdapter;
+import ru.ksu.motygullin.yatambyl.adapters.ProfileRecyclerViewAdapter;
 import ru.ksu.motygullin.yatambyl.asynchronous.ProfileModelLoader;
 import ru.ksu.motygullin.yatambyl.entites.ProfileModel;
 
@@ -19,7 +19,7 @@ public class MyProfileActivity extends AppCompatActivity implements LoaderManage
     TextView username;
     TextView userRating;
     TextView numOfTracks;
-    ArtworkRecyclerViewAdapter adapter;
+    ProfileRecyclerViewAdapter adapter;
 
     RecyclerView tracks;
 
@@ -34,7 +34,7 @@ public class MyProfileActivity extends AppCompatActivity implements LoaderManage
         tracks = (RecyclerView) findViewById(R.id.tracks);
 
 
-        adapter = new ArtworkRecyclerViewAdapter(null);
+        adapter = new ProfileRecyclerViewAdapter(null);
         tracks.setLayoutManager(new LinearLayoutManager(this));
         tracks.setAdapter(adapter);
 

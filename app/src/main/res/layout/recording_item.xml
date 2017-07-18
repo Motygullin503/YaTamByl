@@ -44,28 +44,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="С.Есенин"
+
                 android:textAppearance="?android:attr/textAppearanceLarge" />
             <TextView
                 android:id="@+id/name"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="'Че-то там Солнце'"
+                android:text=""
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
         </LinearLayout>
 
         <ImageButton
-            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:visibility="visible"
             android:background="@mipmap/ic_upvote"
             android:layout_alignBottom="@id/llayout"
             android:id="@+id/i_button"
-            android:layout_toEndOf="@+id/llayout"
-            android:layout_width="match_parent"
+            android:layout_toEndOf="@id/llayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/llayout2" />
 
         <LinearLayout
             android:layout_alignParentTop="true"
