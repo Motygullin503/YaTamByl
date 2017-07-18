@@ -1,36 +1,27 @@
 package ru.ksu.motygullin.yatambyl.entites;
 
-
-import android.net.Uri;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User {
 
+    @SerializedName("hash")
+    @Expose
     private String hash;
-    private String username;
-    private int rating;
-
-    private Uri photo;
-
-    public User() {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("rating")
+    @Expose
+    private Integer rating;
+    @SerializedName("photo")
+    @Expose
+    private Object photo;
+    @SerializedName("name")
+    @Expose
+    private String name;
 
     public String getHash() {
         return hash;
@@ -40,34 +31,36 @@ public class User implements Serializable {
         this.hash = hash;
     }
 
-    public Uri getPhoto() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public Object getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Uri photo) {
+    public void setPhoto(Object photo) {
         this.photo = photo;
     }
 
-    public User(String hash, String username, int rating, Uri photo) {
-        this.hash = hash;
-        this.username = username;
-        this.rating = rating;
-        this.photo = photo;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return obj instanceof User &&
-                (((User) obj).getUsername().equals(username))&&
-                ((User) obj).getHash().equals(hash)&&
-                ((User) obj).getRating() == rating &&
-                ((User) obj).getPhoto().equals(photo);
+    public void setName(String name) {
+        this.name = name;
     }
-
-    @Override
-    public String toString() {
-        return username;
-    }
-
 
 }

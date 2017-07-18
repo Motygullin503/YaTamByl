@@ -169,20 +169,20 @@ public class RecordingActivity extends AppCompatActivity {
                                                 Intent intent = getIntent();
                                                 YaTamBylAPI api = Api.getInstance().getApi();
 
-//                                                Call<PostModel> call= api.addTracks(intent.getStringExtra("uid"), intent.getIntExtra("artwork_id", 1), String.valueOf(task.getResult().getDownloadUrl()));
-//                                                call.enqueue(new Callback<PostModel>() {
-//                                                    @Override
-//                                                    public void onResponse(@NonNull Call<PostModel> call, @NonNull Response<PostModel> response) {
-//                                                        Toast.makeText(RecordingActivity.this, "Запись успешно загружена!", Toast.LENGTH_LONG).show();
-//                                                        Intent intent = new Intent(context, GeneralActivity.class);
-//                                                        startActivity(intent);
-//                                                    }
-//
-//                                                    @Override
-//                                                    public void onFailure(@NonNull Call<PostModel> call, @NonNull Throwable t) {
-//                                                        Toast.makeText(RecordingActivity.this, "Произошла ошибка. Повторите попытку.", Toast.LENGTH_SHORT).show();
-//                                                    }
-//                                                });
+                                                Call<PostModel> call= api.addTracks(intent.getStringExtra("uid"), intent.getIntExtra("artwork_id", 1), String.valueOf(task.getResult().getDownloadUrl()));
+                                                call.enqueue(new Callback<PostModel>() {
+                                                    @Override
+                                                    public void onResponse(@NonNull Call<PostModel> call, @NonNull Response<PostModel> response) {
+                                                        Toast.makeText(RecordingActivity.this, "Запись успешно загружена!", Toast.LENGTH_LONG).show();
+                                                        Intent intent = new Intent(context, GeneralActivity.class);
+                                                        startActivity(intent);
+                                                    }
+
+                                                    @Override
+                                                    public void onFailure(@NonNull Call<PostModel> call, @NonNull Throwable t) {
+                                                        Toast.makeText(RecordingActivity.this, "Произошла ошибка. Повторите попытку.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override

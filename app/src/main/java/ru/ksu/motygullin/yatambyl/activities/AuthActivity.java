@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 
 import ru.ksu.motygullin.yatambyl.R;
-import ru.ksu.motygullin.yatambyl.entites.User;
+import ru.ksu.motygullin.yatambyl.entites.MyUser;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -153,7 +153,7 @@ public class AuthActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<GetTokenResult> task) {
                                             if (task.isSuccessful()) {
                                                 Intent intent = new Intent(context, GeneralActivity.class);
-                                                User newUser = new User(task.getResult().getToken(), user.getDisplayName(), 1, null);
+                                                MyUser newUser = new MyUser(task.getResult().getToken(), user.getDisplayName(), 1, null);
                                                 intent.putExtra("user", newUser);
                                                 startActivity(intent);
                                                 finish();
